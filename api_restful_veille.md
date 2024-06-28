@@ -93,6 +93,11 @@ Parfois, le serveur peut vous donner quelque chose de spécial pour améliorer v
 
 **En résumé**, une API RESTful est un moyen structuré pour les applications de communiquer en utilisant des règles simples et standardisées. C'est comme avoir un menu clair dans un restaurant et un serveur qui suit toujours les mêmes étapes pour prendre et livrer vos commandes, de manière indépendante et efficace.
 
+
+
+
+---
+
 ##**Une API REST, qu'est-ce que c'est ?**
 
 Une API REST (également appelée API RESTful) est une interface de programmation d'application (API ou API web) qui respecte les contraintes du style d'architecture REST et permet d'interagir avec les services web RESTful. L'architecture REST (Representational State Transfer) a été créée par l'informaticien Roy Fielding.
@@ -100,9 +105,6 @@ Une API REST (également appelée API RESTful) est une interface de programmatio
 ![il est magnifique](https://www.golem.de/1209/94430-42921-i_rc.jpg)
 
 
-
-
----
 
 #**Qu'est-ce qu'une API ?**
 
