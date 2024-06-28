@@ -1,9 +1,9 @@
 
-#Dossier Les API RESTful
+#**Dossier Les API RESTful**
 
 ###Par Alexandra, Laura et Lucile
 
-##Structure de notre dossier
+##**Structure de notre dossier**
 1. Concept de base
   - API : Interface de Programmation d'Application permettant à différentes applications de communiquer entre elles.
   - REST : REpresentational State Transfer, un style architectural pour les systèmes distribués, principalement utilisé pour les services web.
@@ -45,44 +45,56 @@
   - Retourner des messages d'erreur clairs : Fournir des informations détaillées sur les erreurs pour faciliter le débogage.
   - Utiliser HTTPS : Toujours sécuriser les communications pour protéger les données.
 
-###Conclusion
+###**Conclusion**
 Les API RESTful sont essentielles pour permettre la communication entre différentes applications via le web. Comprendre les principes REST, les méthodes HTTP, le design des ressources, la sécurisation, et la gestion des erreurs est crucial pour créer des API robustes et efficaces.
 
 
-##Développement des concepts
+##**Développement des concepts**
 1. Concept de base
-###API (Application Programming Interface)
+
+###**API (Application Programming Interface)**
+
 Imaginez que vous êtes dans un restaurant et que vous voulez commander de la nourriture. Vous avez un menu (la liste des choses que vous pouvez commander) et un serveur (la personne qui prend votre commande et vous apporte la nourriture). Une API, c'est un peu comme le menu et le serveur combinés pour les applications.
   - Menu : Liste des choses que vous pouvez demander (des informations, des actions).
   - Serveur : Celui qui prend votre demande, la transmet à la cuisine (une autre application ou un serveur), et vous ramène le résultat (les données ou la réponse à votre demande).
 En d'autres termes, une API est une manière pour différentes applications de parler entre elles et de demander des services ou des informations, sans avoir à savoir comment l'autre application fonctionne en détail.
 
-###REST (REpresentational State Transfer)
+###**REST (REpresentational State Transfer)**
+
 REST est comme une série de règles pour concevoir ces menus et serveurs pour les applications web. Il dit essentiellement :
   - Utilisez les choses simples que tout le monde connaît déjà : Comme les adresses web (URL) et les actions de base (comme obtenir des informations, envoyer des informations, mettre à jour des informations, etc.).
   - Ne gardez pas de souvenirs : Chaque demande doit être complète et indépendante. C'est comme si chaque fois que vous parlez au serveur dans le restaurant, il ne se souvient pas de votre dernière commande. Vous devez tout lui redire à chaque fois.
+
 2. Principes de REST
-###Stateless (Sans état)
+
+###**Stateless (Sans état)**
+
 Imaginez que chaque fois que vous parlez au serveur dans le restaurant, il ne se souvient jamais de vous ni de ce que vous avez commandé avant. Vous devez tout redire à chaque fois : votre nom, ce que vous voulez, etc. De cette façon, chaque commande est indépendante. Pour les applications, cela signifie que chaque requête (demande) doit contenir toutes les informations nécessaires, car le serveur ne garde pas en mémoire ce qui s'est passé avant.
 
-###Client-serveur
+###**Client-serveur**
+
 Dans un restaurant, il y a vous (le client) et le serveur (qui vous sert). Vous ne vous occupez pas de la cuisine, vous ne faites que demander ce que vous voulez et recevoir votre commande. De même, en informatique, le client (votre application ou vous) fait des requêtes, et le serveur (l'autre application) répond. Ils ont des rôles distincts.
 
-###Mise en cache
+###**Mise en cache**
+
 Imaginez que le serveur du restaurant vous dise que certaines choses du menu ne changent jamais et que vous pouvez les mémoriser pour les prochaines fois. Cela rend le service plus rapide parce que vous n'avez pas à demander des choses que vous savez déjà. En informatique, les réponses du serveur peuvent être mises en cache (mémorisées temporairement) pour accélérer les futures requêtes similaires.
 
-###Interface uniforme
+###**Interface uniforme**
+
 Cela signifie que toutes les interactions avec le serveur utilisent les mêmes règles simples. Imaginez que peu importe ce que vous commandez ou à quel serveur vous parlez, vous utilisez toujours le même processus : regarder le menu, choisir, commander. Pour les applications, cela signifie que les requêtes suivent un format standard, ce qui les rend faciles à comprendre et à utiliser.
 
-###Système en couches
+###**Système en couches**
+
 Pensez à un restaurant avec différentes sections : une section pour les boissons, une pour la nourriture, une pour les desserts. Vous faites une seule commande, mais elle est gérée par différentes sections avant de revenir à vous. En informatique, une architecture en couches signifie que la requête peut passer par plusieurs étapes ou services (comme sécurité, gestion des données, etc.) avant de vous donner une réponse.
 
-###Code à la demande (optionnel)
+###**Code à la demande (optionnel)**
+
 Parfois, le serveur peut vous donner quelque chose de spécial pour améliorer votre expérience, comme un échantillon gratuit ou une nouvelle sauce à essayer. De même, un serveur informatique peut, si nécessaire, envoyer un morceau de code à votre application pour lui donner de nouvelles capacités temporaires.
 
-En résumé, une API RESTful est un moyen structuré pour les applications de communiquer en utilisant des règles simples et standardisées. C'est comme avoir un menu clair dans un restaurant et un serveur qui suit toujours les mêmes étapes pour prendre et livrer vos commandes, de manière indépendante et efficace.
+**En résumé**, une API RESTful est un moyen structuré pour les applications de communiquer en utilisant des règles simples et standardisées. C'est comme avoir un menu clair dans un restaurant et un serveur qui suit toujours les mêmes étapes pour prendre et livrer vos commandes, de manière indépendante et efficace.
 
-##Une API REST, qu'est-ce que c'est ?
+##**Une API REST, qu'est-ce que c'est ?**
+
 Une API REST (également appelée API RESTful) est une interface de programmation d'application (API ou API web) qui respecte les contraintes du style d'architecture REST et permet d'interagir avec les services web RESTful. L'architecture REST (Representational State Transfer) a été créée par l'informaticien Roy Fielding.
 
 ![il est magnifique](https://www.golem.de/1209/94430-42921-i_rc.jpg)
@@ -92,10 +104,12 @@ Une API REST (également appelée API RESTful) est une interface de programmatio
 
 
 
-#Qu'est-ce qu'une API ?
+#**Qu'est-ce qu'une API ?**
+
 Une API est un ensemble de définitions et de protocoles qui facilite la création et l'intégration de logiciels d'applications. Elle est parfois considérée comme un contrat entre un fournisseur d'informations et un utilisateur d'informations, qui permet de définir le contenu demandé au consommateur (l'appel) et le contenu demandé au producteur (la réponse). 
 
-##Cas d'utilisation d'une API
+##**Cas d'utilisation d'une API**
+
 Par exemple, l'API conçue pour un service de météo peut demander à l'utilisateur de fournir un code postal et au producteur de renvoyer une réponse en deux parties : la première concernant la température maximale et la seconde la température minimale.
 
 En d'autres termes, lorsque vous souhaitez interagir avec un ordinateur ou un système pour récupérer des informations ou exécuter une fonction, une API permet d'indiquer au système ce que vous attendez de lui, afin qu'il puisse comprendre votre demande et y répondre. 
@@ -103,13 +117,15 @@ En d'autres termes, lorsque vous souhaitez interagir avec un ordinateur ou un sy
 Vous pouvez vous représenter une API comme un médiateur entre les utilisateurs ou clients et les ressources ou services web auxquels ils souhaitent accéder. 
 
 
-##Avantages des API
+##**Avantages des API**
+
 Pour une entreprise, c'est aussi une solution pour partager des ressources et des informations, tout en maintenant un certain niveau de sécurité, de contrôle et d'authentification, en déterminant qui est autorisé à accéder à quoi. 
 
 Autre avantage des API : vous n'avez pas besoin de connaître le fonctionnement exact de la mise en cache, c'est-à-dire de savoir comment vos ressources sont récupérées ni d'où elles proviennent.
 
 
-#REST
+#**REST**
+
 REST est un ensemble de contraintes architecturales. Il ne s'agit ni d'un protocole, ni d'une norme. Les développeurs d'API peuvent mettre en œuvre REST de nombreuses manières.
 
 Lorsqu'un client émet une requête par le biais d'une API RESTful, celle-ci transfère une représentation de l'état de la ressource au demandeur ou point de terminaison. Cette information, ou représentation, est fournie via le protocole HTTP dans l'un des formats suivants : JSON (JavaScript Object Notation), HTML, XLT, Python, PHP ou texte brut. Le langage de programmation le plus communément utilisé est JSON, car, contrairement à ce que son nom indique, il ne dépend pas d'un langage et peut être lu aussi bien par les humains que par les machines. 
@@ -132,7 +148,8 @@ Bien que l'API REST doive répondre à l'ensemble de ces critères, elle est con
 
 Puisque REST est un ensemble de directives mises en œuvre à la demande, les API REST sont plus rapides et légères, et offrent une évolutivité accrue. Elles sont donc idéales pour l'IoT (Internet des objets) et le développement d'applications mobiles. 
 
-#API SOAP ou REST
+#**API SOAP ou REST**
+
 Pour standardiser l'échange des informations entre les API toujours plus nombreuses, il a fallu développer un protocole : le « Simple Object Access Protocol », plus connu sous le nom de SOAP. Les API conçues d'après le protocole SOAP utilisent le format XML pour leurs messages et reçoivent des requêtes via HTTP ou SMTP. SOAP a pour objectif de simplifier l'échange des informations entre les applications qui s'exécutent dans des environnements différents ou qui ont été écrites dans des langages différents.
 
 Le **« Representational State Transfer », ou REST,** est une autre tentative de normalisation. Les API web qui respectent les contraintes de l'architecture REST sont appelées API RESTful. Ces deux éléments diffèrent sur un point fondamental : SOAP est un protocole, alors que REST est un style d'architecture. Cela signifie qu'il n'existe aucune norme officielle qui régit les API web RESTful. Selon la définition proposée par Roy Fielding dans sa thèse « Architectural Styles and the Design of Network-based Software Architectures », les API sont RESTful tant qu'elles respectent les six contraintes de conception d'un système RESTful :
@@ -153,21 +170,24 @@ Ces dernières années, la spécification OpenAPI s'est imposée comme la norme 
 Une autre norme d'API est en train d'émerger : GraphQL, un langage de requête et un environnement d'exécution côté serveur qui se propose de remplacer l'architecture REST. GraphQL s'attache à fournir aux clients uniquement les données qu'ils ont demandées, et rien de plus. Utilisé à la place de REST, GraphQL permet aux développeurs de créer des requêtes qui extraient les données de plusieurs sources à l'aide d'un seul appel d'API.
 
 
-##Capacité de mise à l'échelle
+##**Capacité de mise à l'échelle**
+
 **Mise à l'échelle (scalabilité)** signifie qu'un système peut grandir et gérer plus de demandes sans perdre en performance.
   - Interaction client-serveur optimisée : Les API RESTful permettent une communication efficace entre le client (celui qui demande) et le serveur (celui qui répond).
   - Apatride (stateless) : Chaque demande du client contient toutes les informations nécessaires. Le serveur ne garde pas de mémoire des demandes précédentes. Cela allège le serveur, le rendant plus rapide et capable de gérer plus de demandes.
   - Mise en cache : Les réponses peuvent être mémorisées temporairement. Cela réduit la fréquence des demandes au serveur, améliorant encore la performance.
 **Résumé simple :** Les API RESTful sont conçues pour être rapides et efficaces, ce qui leur permet de grandir sans devenir lentes ou surchargées.
 
-####Flexibilité
+####**Flexibilité**
+
 **Flexibilité** signifie que les différentes parties du système peuvent changer ou évoluer sans causer de problèmes aux autres parties.
   - Séparation client-serveur : Le client et le serveur sont indépendants. Vous pouvez modifier le serveur sans affecter le client, et vice versa.
   - Découplage des composants : Les différentes parties du serveur peuvent être changées ou mises à jour indépendamment. Par exemple, vous pouvez améliorer la base de données sans toucher à la logique de l'application.
   - Superposition des fonctions : Vous pouvez ajouter des fonctionnalités ou faire des modifications à différentes couches de l'application sans devoir tout réécrire.
 **Résumé simple :** Les API RESTful permettent de changer et d'améliorer les différentes parties du système sans tout casser.
 
-####Indépendance
+####**Indépendance**
+
 **Indépendance** signifie que les API RESTful ne dépendent pas de la technologie spécifique utilisée par le client ou le serveur.
   - Technologie indépendante : Vous pouvez utiliser différents langages de programmation pour le client et le serveur sans que cela affecte le fonctionnement de l'API.
   - Flexibilité technologique : Vous pouvez changer la technologie sous-jacente du serveur ou du client sans affecter la communication entre eux.
@@ -176,7 +196,7 @@ Une autre norme d'API est en train d'émerger : GraphQL, un langage de requête 
 
 
 
-Les méthodes HTTP
+#Les méthodes HTTP
 Les méthodes HTTP sont des actions que tu peux effectuer sur les ressources d'une API RESTful. Voici une explication simple des principales méthodes HTTP utilisées :
 GET :
 But : Récupérer des informations.
