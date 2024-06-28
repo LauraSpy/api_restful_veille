@@ -102,7 +102,7 @@ Une API REST (également appelée API RESTful) est une interface de programmatio
 
 
 
-
+---
 
 #**Qu'est-ce qu'une API ?**
 
