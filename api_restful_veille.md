@@ -196,67 +196,72 @@ Une autre norme d'API est en train d'émerger : GraphQL, un langage de requête 
 
 
 
-#Les méthodes HTTP
+#**Les méthodes HTTP**
+
 Les méthodes HTTP sont des actions que tu peux effectuer sur les ressources d'une API RESTful. Voici une explication simple des principales méthodes HTTP utilisées :
-GET :
-But : Récupérer des informations.
-Exemple : Récupérer la liste des utilisateurs.
-Utilisation : GET /utilisateurs
-POST :
-But : Créer une nouvelle ressource.
-Exemple : Ajouter un nouvel utilisateur.
-Utilisation : POST /utilisateurs
-Détails envoyés : Les informations du nouvel utilisateur (nom, email, etc.).
-PUT :
-But : Mettre à jour une ressource existante (remplacement complet).
-Exemple : Modifier les informations d'un utilisateur.
-Utilisation : PUT /utilisateurs/123
-Détails envoyés : Les nouvelles informations de l'utilisateur.
-PATCH :
-But : Mettre à jour partiellement une ressource.
-Exemple : Modifier uniquement l'email d'un utilisateur.
-Utilisation : PATCH /utilisateurs/123
-Détails envoyés : L'information à modifier (nouvel email).
-DELETE :
-But : Supprimer une ressource.
-Exemple : Supprimer un utilisateur.
-Utilisation : DELETE /utilisateurs/123
+
+1. **GET :**
+  - But : Récupérer des informations.
+  - Exemple : Récupérer la liste des utilisateurs.
+  - Utilisation : GET /utilisateurs
+2. **POST :**
+  - **But**: Créer une nouvelle ressource.
+  - **Exemple** : Ajouter un nouvel utilisateur.
+  - **Utilisation** : POST /utilisateurs
+  - **Détails envoyés** : Les informations du nouvel utilisateur (nom, email, etc.).
+3. **PUT :**
+  - **But** : Mettre à jour une ressource existante (remplacement complet).
+  - **Exemple** : Modifier les informations d'un utilisateur.
+  - **Utilisation** : PUT /utilisateurs/123
+  - **Détails envoyés** : Les nouvelles informations de l'utilisateur.
+4. **PATCH** :
+  - **But** : Mettre à jour partiellement une ressource.
+  - **Exemple** : Modifier uniquement l'email d'un utilisateur.
+  - **Utilisation** : PATCH /utilisateurs/123
+  - **Détails envoyés** : L'information à modifier (nouvel email).
+5. **DELETE** :
+  - **But** : Supprimer une ressource.
+  - **Exemple** : Supprimer un utilisateur.
+  - **Utilisation** : DELETE /utilisateurs/123
+
 Pour te donner une analogie simple, imagine une bibliothèque :
-GET : Regarder la liste des livres disponibles.
-POST : Ajouter un nouveau livre à la bibliothèque.
-PUT : Remplacer complètement un livre existant (nouvelle édition).
-PATCH : Modifier quelques pages d'un livre existant.
-DELETE : Retirer un livre de la bibliothèque.
+  - **GET** : Regarder la liste des livres disponibles.
+  - **POST** : Ajouter un nouveau livre à la bibliothèque.
+  - **PUT** : Remplacer complètement un livre existant (nouvelle édition).
+  - **PATCH** : Modifier quelques pages d'un livre existant.
+  - **DELETE** : Retirer un livre de la bibliothèque.
 Chaque méthode HTTP correspond à une action spécifique à faire avec les données de ton API RESTful. C'est tout simple !
 
 L'intérêt des méthodes HTTP dans le contexte d'une API RESTful réside dans leur capacité à fournir un moyen standardisé, efficace et compréhensible de gérer les ressources d'un système. Voici quelques points clés qui illustrent leur importance :
-Standardisation :
-Interopérabilité : Les méthodes HTTP sont des standards reconnus internationalement. Cela signifie que les développeurs du monde entier comprennent et utilisent les mêmes conventions, facilitant ainsi la collaboration et l'intégration de systèmes différents.
-Clarté : Chaque méthode a une signification précise, ce qui rend l'API plus lisible et compréhensible.
-Simplicité et efficacité :
-CRUD simplifié : Les méthodes HTTP correspondent aux opérations CRUD (Create, Read, Update, Delete) courantes dans la gestion des données. Cela simplifie la conception et l'utilisation des API.
-Réduction de la complexité : En utilisant des méthodes bien définies, on évite de créer des actions personnalisées complexes, ce qui simplifie le développement et la maintenance de l'API.
-Flexibilité :
-Adaptabilité : Les API RESTful peuvent évoluer facilement en ajoutant de nouvelles ressources ou en modifiant les existantes sans nécessiter de changements majeurs dans la structure de l'API.
-Partiellement mises à jour : Avec PATCH, par exemple, on peut mettre à jour partiellement une ressource, ce qui peut être plus efficace et rapide que de remplacer entièrement une ressource avec PUT.
-Scalabilité :
-Performance : Les méthodes HTTP permettent une gestion efficace des ressources. Par exemple, GET est souvent optimisé pour être rapide et consommer peu de ressources.
-Cachabilité : Les réponses aux requêtes GET peuvent être mises en cache, améliorant ainsi les performances et réduisant la charge sur le serveur.
-Sécurité et contrôle :
-Permissions claires : En utilisant différentes méthodes HTTP, on peut facilement définir et gérer les permissions et les autorisations sur les ressources. Par exemple, un utilisateur pourrait avoir le droit de lire des données (GET) mais pas de les modifier (PUT, PATCH) ou de les supprimer (DELETE).
-Traceabilité : Les actions effectuées via différentes méthodes peuvent être loguées et suivies plus facilement, aidant à la surveillance et à l'audit.
-Exemple Pratique
+1. **Standardisation :**
+  - **Interopérabilité** : Les méthodes HTTP sont des standards reconnus internationalement. Cela signifie que les développeurs du monde entier comprennent et utilisent les mêmes conventions, facilitant ainsi la collaboration et l'intégration de systèmes différents.
+  - **Clarté** : Chaque méthode a une signification précise, ce qui rend l'API plus lisible et compréhensible.
+2. **Simplicité et efficacité :**
+  - **CRUD simplifié** : Les méthodes HTTP correspondent aux opérations CRUD (Create, Read, Update, Delete) courantes dans la gestion des données. Cela simplifie la conception et l'utilisation des API.
+  - **Réduction de la complexité** : En utilisant des méthodes bien définies, on évite de créer des actions personnalisées complexes, ce qui simplifie le développement et la maintenance de l'API.
+3. **Flexibilité :**
+  - **Adaptabilité** : Les API RESTful peuvent évoluer facilement en ajoutant de nouvelles ressources ou en modifiant les existantes sans nécessiter de changements majeurs dans la structure de l'API.
+  - **Partiellement mises à jour** : Avec PATCH, par exemple, on peut mettre à jour partiellement une ressource, ce qui peut être plus efficace et rapide que de remplacer entièrement une ressource avec PUT.
+4. **Scalabilité :**
+  - **Performance** : Les méthodes HTTP permettent une gestion efficace des ressources. Par exemple, GET est souvent optimisé pour être rapide et consommer peu de ressources.
+  - **Cachabilité** : Les réponses aux requêtes GET peuvent être mises en cache, améliorant ainsi les performances et réduisant la charge sur le serveur.
+5. **Sécurité et contrôle :**
+  - **Permissions claires** : En utilisant différentes méthodes HTTP, on peut facilement définir et gérer les permissions et les autorisations sur les ressources. Par exemple, un utilisateur pourrait avoir le droit de lire des données (GET) mais pas de les modifier (PUT, PATCH) ou de les supprimer (DELETE).
+  - **Traceabilité** : Les actions effectuées via différentes méthodes peuvent être loguées et suivies plus facilement, aidant à la surveillance et à l'audit.
+
+**Exemple Pratique**
+
 Imaginons que tu développes une application de gestion de bibliothèque avec une API RESTful :
-GET /livres : Récupérer la liste de tous les livres.
-POST /livres : Ajouter un nouveau livre.
-PUT /livres/123 : Remplacer les informations du livre avec l'ID 123.
-PATCH /livres/123 : Mettre à jour partiellement les informations du livre avec l'ID 123 (par exemple, changer seulement le titre).
-DELETE /livres/123 : Supprimer le livre avec l'ID 123.
+  - **GET /livres** : Récupérer la liste de tous les livres.
+  - **POST /livres** : Ajouter un nouveau livre.
+  - **PUT /livres/123** : Remplacer les informations du livre avec l'ID 123.
+  - **PATCH /livres/123** : Mettre à jour partiellement les informations du livre avec l'ID 123 (par exemple, changer seulement le titre).
+  - **DELETE /livres/123** : Supprimer le livre avec l'ID 123.
 
 
 
 
-Authentification et Sécurisation des API
+#Authentification et Sécurisation des API
 Imaginez que vous avez une maison (votre API) remplie de trésors (vos données). Vous voulez que seules certaines personnes puissent y entrer, et vous voulez contrôler ce qu'elles peuvent faire une fois à l'intérieur.
 
 OAuth
