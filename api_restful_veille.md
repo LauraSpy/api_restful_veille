@@ -261,67 +261,76 @@ Imaginons que tu développes une application de gestion de bibliothèque avec un
 
 
 
-#Authentification et Sécurisation des API
+#**Authentification et Sécurisation des API**
+
 Imaginez que vous avez une maison (votre API) remplie de trésors (vos données). Vous voulez que seules certaines personnes puissent y entrer, et vous voulez contrôler ce qu'elles peuvent faire une fois à l'intérieur.
 
-OAuth
+##**OAuth**
+
 OAuth est comme un système de clés spéciales pour votre maison. Au lieu de donner votre clé principale (mot de passe) à quelqu'un, vous lui donnez une clé temporaire qui ne fonctionne que pour certaines pièces et pendant une durée limitée. Par exemple, vous pourriez donner à votre ami une clé qui lui permet d'accéder uniquement à la cuisine pendant une journée.
 
-OAuth 2.0 est donc un protocole d'autorisation standardisé qui permet à une application d'accéder à des ressources au nom d'un utilisateur sans avoir besoin de ses identifiants.
-Fonctionnement simplifié :
-L'utilisateur veut utiliser une application tierce avec son compte Google.
-L'application demande l'autorisation à Google.
-Google demande à l'utilisateur s'il accepte de partager certaines informations.
-Si l'utilisateur accepte, Google donne un "jeton d'accès" à l'application.
-L'application utilise ce jeton pour accéder aux informations autorisées.
-Avantages :
-Sécurité accrue : l'application tierce n'a jamais accès au mot de passe de l'utilisateur.
-Contrôle granulaire : l'utilisateur peut choisir quelles informations il partage.
-Révocation facile : l'accès peut être retiré à tout moment sans changer de mot de passe.
+**OAuth 2.0** est donc un protocole d'autorisation standardisé qui permet à une application d'accéder à des ressources au nom d'un utilisateur sans avoir besoin de ses identifiants.
 
-JWT (JSON Web Token)
+###**Fonctionnement simplifié :**
+
+  - L'utilisateur veut utiliser une application tierce avec son compte Google.
+  - L'application demande l'autorisation à Google.
+  - Google demande à l'utilisateur s'il accepte de partager certaines informations.
+  - Si l'utilisateur accepte, Google donne un "jeton d'accès" à l'application.
+  - L'application utilise ce jeton pour accéder aux informations autorisées.
+
+###**Avantages :**
+
+  - **Sécurité accrue** : l'application tierce n'a jamais accès au mot de passe de l'utilisateur.
+  - **Contrôle granulaire** : l'utilisateur peut choisir quelles informations il partage.
+  - **Révocation facile** : l'accès peut être retiré à tout moment sans changer de mot de passe.
+
+##**JWT (JSON Web Token)**
+
 JWT est comme un badge d'identification sécurisé. Quand quelqu'un entre dans votre maison avec une clé OAuth, vous lui donnez ce badge. Le badge contient des informations sur qui ils sont et ce qu'ils sont autorisés à faire. Chaque fois qu'ils veulent faire quelque chose dans la maison, ils montrent ce badge, et vous pouvez vérifier rapidement s'ils sont autorisés.
 
 JWT est un standard ouvert (RFC 7519) qui définit une manière compacte et autonome de transmettre des informations de manière sécurisée entre les parties sous forme d'objet JSON.
-Structure d'un JWT :
-Header : Type de token et algorithme de hachage
-Payload : Contient les revendications (claims). Ce sont des déclarations sur l'entité (généralement l'utilisateur) et des métadonnées additionnelles.
-Signature : Assure que le token n'a pas été altéré.
-Fonctionnement :
-L'utilisateur s'authentifie et reçoit un JWT.
-Pour chaque requête suivante, l'utilisateur envoie ce JWT.
-Le serveur vérifie la signature du JWT pour s'assurer de sa validité.
-Avantages :
-Stateless : Le serveur n'a pas besoin de stocker les sessions.
-Portable : Peut être utilisé à travers différents domaines.
-Sécurisé : La signature empêche la falsification.
 
-Gestion des Erreurs et Statuts HTTP
+**Structure d'un JWT :**
+  - Header : Type de token et algorithme de hachage
+  - Payload : Contient les revendications (claims). Ce sont des déclarations sur l'entité (généralement l'utilisateur) et des métadonnées additionnelles.
+  - Signature : Assure que le token n'a pas été altéré.
+**Fonctionnement :**
+  - L'utilisateur s'authentifie et reçoit un JWT.
+  - Pour chaque requête suivante, l'utilisateur envoie ce JWT.
+  - Le serveur vérifie la signature du JWT pour s'assurer de sa validité.
+**Avantages :**
+  - Stateless : Le serveur n'a pas besoin de stocker les sessions.
+  - Portable : Peut être utilisé à travers différents domaines.
+  - Sécurisé : La signature empêche la falsification.
+
+##Gestion des Erreurs et Statuts HTTP
 
 Les codes de statuts HTTP sont standardisés et divisés en cinq classes. 
-1xx (Informationnel) : Rarement utilisés directement par les développeurs.
-2xx (Succès) : La requête a été reçue, comprise et acceptée.
-3xx (Redirection) : Une action supplémentaire est nécessaire pour compléter la requête.
-4xx (Erreur du client) : La requête contient une erreur ou ne peut pas être traitée.
-5xx (Erreur du serveur) : Le serveur a échoué à traiter une requête apparemment valide.
+  - **1xx (Informationnel)** : Rarement utilisés directement par les développeurs.
+  - **2xx (Succès)** : La requête a été reçue, comprise et acceptée.
+  - **3xx (Redirection)** : Une action supplémentaire est nécessaire pour compléter la requête.
+  - **4xx (Erreur du client)** : La requête contient une erreur ou ne peut pas être traitée.
+  - **5xx (Erreur du serveur)** : Le serveur a échoué à traiter une requête apparemment valide.
 
 Ils peuvent être représentés comme des messages que votre maison (API) envoie aux visiteurs pour leur dire ce qui se passe. Voici quelques exemples :
-200 OK : "Bienvenue ! Tout va bien, entrez !", soit il indique que la requête a réussi. C'est la réponse standard pour les requêtes HTTP réussies.
-201 Created : "Super ! J'ai créé ce que vous m'avez demandé.", soit il indique que la requête a réussi et qu'une nouvelle ressource a été créée en conséquence. Typiquement utilisé avec les requêtes POST.
-400 Bad Request : "Désolé, je ne comprends pas ce que vous demandez.", soit le serveur ne peut pas ou ne veut pas traiter la requête en raison d'une erreur apparente du client (syntaxe mal formée, taille trop importante, etc.).
-401 Unauthorized : "Hé ! Vous devez vous identifier avant d'entrer.", qui est similaire à 403 Forbidden, mais spécifiquement pour une utilisation lorsque l'authentification est requise et a échoué ou n'a pas encore été fournie.
-403 Forbidden : "Je vous connais, mais vous n'avez pas le droit d'aller là." Le client n'a pas les droits d'accès au contenu, donc le serveur refuse de donner la réponse appropriée.
-404 Not Found : "Oups ! Ce que vous cherchez n'existe pas ici.", l’une des plus connues : Le serveur n'a pas trouvé la ressource demandée. Souvent utilisé lorsque l'URL demandée n'existe pas sur le serveur.
-500 Internal Server Error : "Oh non ! J'ai un problème interne, ce n'est pas de votre faute." Une erreur générique, donnée quand une condition inattendue a été rencontrée et qu'aucune autre réponse spécifique ne convient.
+  - 200 OK : "Bienvenue ! Tout va bien, entrez !", soit il indique que la requête a réussi. C'est la réponse standard pour les requêtes HTTP réussies.
+  - 201 Created : "Super ! J'ai créé ce que vous m'avez demandé.", soit il indique que la requête a réussi et qu'une nouvelle ressource a été créée en conséquence. Typiquement utilisé avec les requêtes POST.
+  - 400 Bad Request : "Désolé, je ne comprends pas ce que vous demandez.", soit le serveur ne peut pas ou ne veut pas traiter la requête en raison d'une erreur apparente du client (syntaxe mal formée, taille trop importante, etc.).
+  - 401 Unauthorized : "Hé ! Vous devez vous identifier avant d'entrer.", qui est similaire à 403 Forbidden, mais spécifiquement pour une utilisation lorsque l'authentification est requise et a échoué ou n'a pas encore été fournie.
+  - 403 Forbidden : "Je vous connais, mais vous n'avez pas le droit d'aller là." Le client n'a pas les droits d'accès au contenu, donc le serveur refuse de donner la réponse appropriée.
+  - 404 Not Found : "Oups ! Ce que vous cherchez n'existe pas ici.", l’une des plus connues : Le serveur n'a pas trouvé la ressource demandée. Souvent utilisé lorsque l'URL demandée n'existe pas sur le serveur.
+  - 500 Internal Server Error : "Oh non ! J'ai un problème interne, ce n'est pas de votre faute." Une erreur générique, donnée quand une condition inattendue a été rencontrée et qu'aucune autre réponse spécifique ne convient.
 
 Ces statuts aident les développeurs à comprendre ce qui se passe quand ils interagissent avec votre API, un peu comme des panneaux indicateurs dans votre maison. 
 
 
-Les bonnes pratiques pour la gestion des erreurs :
-Utilisez les codes de statut appropriés.
-Fournissez des messages d'erreur clairs et utiles.
-Incluez des détails supplémentaires comme un code d'erreur unique pour faciliter le débogage.
-Loggez les erreurs côté serveur pour le suivi et l'analyse.
+##**Les bonnes pratiques pour la gestion des erreurs :**
+
+  - Utilisez les codes de statut appropriés.
+  - Fournissez des messages d'erreur clairs et utiles.
+  - Incluez des détails supplémentaires comme un code d'erreur unique pour faciliter le débogage.
+  - Loggez les erreurs côté serveur pour le suivi et l'analyse.
 
 En résumé, l'authentification et la sécurisation des API sont des moyens de contrôler qui peut accéder à nos données et ce qu'ils peuvent en faire. Les statuts HTTP sont des messages qui indiquent comment se déroule l'interaction avec l’API. En implémentant ces concepts correctement, on crée une API plus robuste, sécurisée et facile à utiliser pour les développeurs qui l'intégreront dans leurs applications.
 
@@ -330,14 +339,14 @@ En résumé, l'authentification et la sécurisation des API sont des moyens de c
 
 
 
-Sources sites 
+##**Sources sites**
 
-https://www.redhat.com/fr/topics/api/what-are-application-programming-interfaces
+[image](https://www.redhat.com/fr/topics/api/what-are-application-programming-interfaces)
 
-https://aws.amazon.com/fr/what-is/restful-api/
+[image](https://aws.amazon.com/fr/what-is/restful-api/)
 
-https://blog.hubspot.fr/website/api-rest
+[image](https://blog.hubspot.fr/website/api-rest)
 
-https://restfulapi.net/
+[image](https://restfulapi.net/)
 
 
